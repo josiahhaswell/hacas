@@ -1,5 +1,6 @@
-import Hacas.Utils
 module Hacas.Expression where
+
+import Hacas.Utils
 data ArithmeticOperation = 
 	Add | Subtract | Divide | Multiply | Exponentiate
 

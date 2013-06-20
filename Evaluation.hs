@@ -1,5 +1,5 @@
 module Hacas.Evaluation where
-
+import Hacas.Expression
 
 evaluate :: Expression -> Double
 evaluate (Numeric x) = x

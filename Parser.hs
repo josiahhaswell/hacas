@@ -6,6 +6,7 @@ import Text.Parsec.Token
 import Text.Parsec.Language
 import Text.Parsec.Expr
 import Text.Parsec.Char
+import Hacas.Expression
 
 operatorCharacters = "+-*/%"
 
@@ -28,7 +29,7 @@ numeric = do
 sym :: Parser Expression
 sym = 
 	do
-		value <- many1 $ letter 
+		value <- stringLiteral lexer 
 		return $ Symbol value  
 
 neg x = Negate x
