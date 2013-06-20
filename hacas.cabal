@@ -1,0 +1,11 @@
+Name: hacas
+Version: 0.0
+Description: Simple computer algebra system written in Haskell
+License: BSD
+Author: Josiah Haswell
+Maintainer: Josiah.Haswell@gmail.com
+Cabal-Version: >= 1.0
+Executable hacas
+  Main-is: Hacas.hs
+  Build-depends: base,parsec
+  hs-source-dirs:./src
