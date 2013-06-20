@@ -37,16 +37,16 @@ identity x = x
 operation op lhs rhs = Arithmetic op lhs rhs
 
 expressionTable = [[ 
-	 Prefix (reservedOp lexer "-" >> return neg) 
-	,Prefix (reservedOp lexer "+" >> return identity) 
-	],[ 
-	 Infix (reservedOp lexer "^" >> return (operation Exponentiate)) AssocLeft
-  ,Infix (reservedOp lexer "*" >> return (operation Multiply)) AssocLeft 
-	,Infix (reservedOp lexer "/" >> return (operation Divide)) AssocLeft 
-	],[ 
-	 Infix (reservedOp lexer "+" >> return (operation Add)) AssocLeft 
-	,Infix (reservedOp lexer "-" >> return (operation Subtract)) AssocLeft 
-	]] 
+     Prefix (reservedOp lexer "-" >> return neg) 
+    ,Prefix (reservedOp lexer "+" >> return identity) 
+  ],[ 
+     Infix (reservedOp lexer "^" >> return (operation Exponentiate)) AssocLeft
+    ,Infix (reservedOp lexer "*" >> return (operation Multiply)) AssocLeft 
+    ,Infix (reservedOp lexer "/" >> return (operation Divide)) AssocLeft 
+  ],[ 
+     Infix (reservedOp lexer "+" >> return (operation Add)) AssocLeft 
+    ,Infix (reservedOp lexer "-" >> return (operation Subtract)) AssocLeft 
+  ]] 
 
 
 
