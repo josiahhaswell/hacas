@@ -28,7 +28,7 @@ numeric = do
 sym :: Parser Expression
 sym = 
 	do
-		value <- stringLiteral lexer 
+		value <- identifier lexer 
 		return $ Symbol value  
 
 neg x = Negate x
@@ -53,7 +53,6 @@ expressionTable = [[
 rawExpression :: Parser Expression 
 rawExpression = (flip buildExpressionParser) expression $ expressionTable
 
-
 expression = parens lexer rawExpression <|> numeric  <|> sym
 
 parseInput = 
@@ -62,5 +61,3 @@ parseInput =
 		n <- rawExpression 
 		eof
 		return n
-
-

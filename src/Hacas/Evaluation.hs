@@ -20,19 +20,6 @@ setValue n@(Numeric a) _ _ = n
 setValue (Arithmetic op lhs rhs) name value = 
 	(Arithmetic op (setValue lhs name value) (setValue rhs name value))
 
-simplify b@(Numeric a) = b
-simplify b@(Symbol a) = b
-
-simplify (Arithmetic op (Numeric (0)) rhs) = Numeric 0 
-simplify (Arithmetic op lhs (Numeric (0))) = Numeric 0
 
 
-simplify b@(Arithmetic op lhs@(Numeric _) rhs@(Numeric _)) = 
-	Numeric (evaluate b)
-simplify b@(Arithmetic op lhs@(Numeric _) rhs@(Symbol _)) = 
-	Arithmetic op (Numeric (evaluate lhs)) rhs
-simplify b@(Arithmetic op lhs@(Symbol _) rhs@(Numeric _)) = 
-	Arithmetic op lhs (Numeric (evaluate rhs)) 
-simplify (Arithmetic op lhs rhs) = 
-	Arithmetic op (simplify lhs) (simplify rhs)
 

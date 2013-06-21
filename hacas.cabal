@@ -1,11 +1,22 @@
 Name: hacas
 Version: 0.0
 Description: Simple computer algebra system written in Haskell
-License: BSD
+License: BSD3
 Author: Josiah Haswell
 Maintainer: Josiah.Haswell@gmail.com
 Cabal-Version: >= 1.0
+
+
 Executable hacas
   Main-is: Hacas.hs
   Build-depends: base,parsec
   hs-source-dirs:./src
+
+Test-Suite test-Expression
+  type: detailed-0.9
+  Main-is: ExpressionTest.hs
+  hs-source-dirs:./test
+  test-module:ExpressionTest
+  Build-depends: base,parsec,Cabal, QuickCheck, HUnit
+
+
